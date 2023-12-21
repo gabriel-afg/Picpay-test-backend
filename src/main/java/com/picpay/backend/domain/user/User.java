@@ -44,4 +44,5 @@ public class User {
         this.document = data.document();
         this.email = data.email();
     }
+
 }

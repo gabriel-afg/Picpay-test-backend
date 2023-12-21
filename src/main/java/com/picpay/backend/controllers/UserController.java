@@ -1,5 +1,6 @@
 package com.picpay.backend.controllers;
 
+import at.favre.lib.crypto.bcrypt.BCrypt;
 import com.picpay.backend.domain.user.User;
 import com.picpay.backend.dto.UserDTO;
 import com.picpay.backend.service.UserService;

@@ -1,5 +1,6 @@
 package com.picpay.backend.service;
 
+import at.favre.lib.crypto.bcrypt.BCrypt;
 import com.picpay.backend.domain.user.User;
 import com.picpay.backend.domain.user.UserType;
 import com.picpay.backend.dto.UserDTO;
@@ -31,7 +32,10 @@ public class UserService {
     }
 
     public User createUser(UserDTO data){
-        User newUser = new User(data);
+        var passwordHashed = BCrypt.withDefaults().hashToString(6, data.password().toCharArray());
+        UserDTO newUserDTO = new UserDTO(data, passwordHashed);
+        System.out.println(newUserDTO);
+        User newUser = new User(newUserDTO);
         this.saveUser(newUser);
 
         return newUser;

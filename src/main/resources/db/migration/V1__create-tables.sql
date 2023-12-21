@@ -5,7 +5,7 @@ CREATE TABLE users
     lastName  VARCHAR(15),
     document  VARCHAR(14) UNIQUE,
     email     VARCHAR(50) UNIQUE,
-    password  VARCHAR(20),
+    password  VARCHAR(70),
     balance   DECIMAL(19, 2),
     userType  ENUM('COMMON', 'MERCHANT')
 );
